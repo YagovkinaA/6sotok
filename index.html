@@ -1,34 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="eng">
 <head>
     <meta charset="UTF-8">
-    <title>WarpstoneShop</title>
+    <title>SkavenWeaponShop</title>
 </head>
 <body>
-    <h1>Eshin's clan shop</h1>
-    <form>
-        <p>Write warpstone's piece numbers: </p>
-        <input
-            type="text"
-            id = "Warpstones_Count"
-            value=" "
-            placeholder="Numbers of warpstones"
-        >
-        <br>
-        <p>Write warpstone price: </p>
-        <input
-            type="text"
-            id = "Warpstone_Price"
-            value=""
-            placeholder="Price of Warpstone"
-        >
-        <br>
-        <br>
-        <button type="button" onclick="calculate();">Calculate price</button>
-        <br>
-        <br>
-        <div id = "cost"></div>
-        <script src="main.js"></script>
-    </form>
+<h1>Skryre shop</h1>
+<form class="form">
+    <p>take number of weapons: </p>
+    <input
+    type="text"
+      id = "pieceweap"
+        value=""
+         placeholder="numweap" >
+    <h2 class="sectitle">Choose-choose</h2>
+    <select class="fchose" name="form" id="choser">
+        <option value="1" id="one">knife</option>
+        <option value="2" id="two">warcannon</option>
+        <option value="3" id="threee">warpflayer</option>
+    </select>
+    <div class="radioform" id="skavenforce">
+        <input type="radio" name="st" id="skaventech" />
+        <input type="radio" name="st" value="overpowered" /> overpowered
+        <input type="radio" name="st" value="middlepower" /> middlepower
+        <input type="radio" name="st" value="lowpower" /> lowpower
+    </div>
+    <div class="checkcheck" id="flayeroptions">
+        <input type="checkbox" name="rapid" id="rapid" /> rapid option
+        <input type="checkbox" name="single" id="single" /> single option
+    </div>
+    <br/>
+</form>
+<br>
+<h2 id="price" class="go-price"></h2>
+<script src="main.js"></script>
 </body>
 </html>
