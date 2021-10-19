@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WarpstoneShop</title>
+</head>
+<body>
+    <h1>Eshin's clan shop</h1>
+    <form>
+        <p>Write warpstone's piece numbers: </p>
+        <input
+            type="text"
+            id = "Warpstones_Count"
+            value=" "
+            placeholder="Numbers of warpstones"
+        >
+        <br>
+        <p>Write warpstone price: </p>
+        <input
+            type="text"
+            id = "Warpstone_Price"
+            value=""
+            placeholder="Price of Warpstone"
+        >
+        <br>
+        <br>
+        <button type="button" onclick="calculate();">Calculate price</button>
+        <br>
+        <br>
+        <div id = "cost"></div>
+        <script src="main.js"></script>
+    </form>
+</body>
+</html>
