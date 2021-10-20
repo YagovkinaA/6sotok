@@ -1,38 +1,33 @@
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SkavenWeaponShop</title>
+    <title>Wraithknights</title>
 </head>
 <body>
-<h1>Skryre shop</h1>
+<h1>Wraithknight upgrade</h1>
 <form class="form">
-    <p>take number of weapons: </p>
-    <input
-    type="text"
-      id = "pieceweap"
-        value=""
-         placeholder="numweap" >
-    <h2 class="sectitle">Choose-choose</h2>
-    <select class="fchose" name="form" id="choser">
-        <option value="1" id="one">knife</option>
-        <option value="2" id="two">warcannon</option>
-        <option value="3" id="threee">warpflayer</option>
+    <p>Choose number of Wraithknights: </p>
+    <input type="text" id = "armynum" value="" placeholder="number of knights" >
+    <h2 class="subtitle">Choose type:</h2>
+    <select class="choose" name="type" id="choose">
+        <option value="1" id="firstProduct">std Wraithknight</option>
+        <option value="2" id="secondProduct">Skathach</option>
+        <option value="3" id="threeProduct">Revenant</option>
     </select>
-    <div class="radioform" id="skavenforce">
-        <input type="radio" name="st" id="skaventech" />
-        <input type="radio" name="st" value="overpowered" /> overpowered
-        <input type="radio" name="st" value="middlepower" /> middlepower
-        <input type="radio" name="st" value="lowpower" /> lowpower
+    <div class="radio" id="upgchose">
+        <input type="radio" name="stp" id="setup" />
+        <input type="radio" name="stp" value="fullupg" /> fullupg
+        <input type="radio" name="stp" value="midupg" /> midupg
+        <input type="radio" name="stp" value="lowupg" /> lowupg
     </div>
-    <div class="checkcheck" id="flayeroptions">
-        <input type="checkbox" name="rapid" id="rapid" /> rapid option
-        <input type="checkbox" name="single" id="single" /> single option
+    <div class="check" id="weaponchoose">
+        <input type="checkbox" name="soniclances" id="soniclances" /> soniclances
+        <input type="checkbox" name="ghostlances" id="ghostlances" /> ghostlances
     </div>
     <br/>
 </form>
-<br>
-<h2 id="price" class="go-price"></h2>
-<script src="main.js"></script>
+<h2 id="price" class="goprice"></h2>
+  <script src="main.js"></script>
 </body>
 </html>

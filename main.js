@@ -1,98 +1,99 @@
 function getnewcost() {
     let price = 0;
     let prices = gotcost();
-    let priceIndex = parseInt(select.value) - 1;
-    if (priceIndex >= 0) {
-        price = prices.prodTypes[priceIndex];
+    let costno = parseInt(choose.value) - 1;
+    if (costno >= 0) {
+        price = prices.prodTypes[costno];
     }
-    let qua = Number(document.getElementById('pieceweap').value);
-    let flayeroptions1 = document.querySelectorAll('#flayeroptions input');
-    flayeroptions1.forEach(function (checkbox) {
+    let kolvo = Number(document.getElementById('armynum').value);
+    let weapin = document.querySelectorAll('#weaponchoose input');
+    weapin.forEach(function (checkbox) {
         if (checkbox.checked) {
-            let prpcost = prices.prodProperties[checkbox.name];
-            if (prpcost !== undefined) {price += prpcost;}
+            let propPrice = prices.prodProperties[checkbox.name];
+            if (propPrice !== undefined) {price += propPrice;}
         }
     });
-    let st = document.getElementsByName('st');
-    st.forEach(function (radio) {
+    let stp = document.getElementsByName('stp');
+    stp.forEach(function (radio) {
         if (radio.checked) {
-            let currcost = prices.prodOptions[radio.value];
-            if (currcost !== undefined) {
-                price += currcost;
+            let optcost = prices.prodOptions[radio.value];
+            if (optcost !== undefined) {
+                price += optcost;
             }
         }
     });
-    let cpw = document.getElementById('pieceweap');
-    cpw.addEventListener('input',function (){getnewcost();});
-    let s = document.getElementsByName('form');
+    let numar = document.getElementById('armynum');
+    numar.addEventListener('input',function (){getnewcost();});
+    let s = document.getElementsByName('type');
     s[0].addEventListener('change', function (event) {
-        let choser = event.target;
-        let skavenforce = document.getElementById('skavenforce');
-        let flayeroptions = document.getElementById('flayeroptions');
-        if (choser.value === '1') {
-            skavenforce.style.display = 'none';
-            flayeroptions.style.display = 'none';
-          skaventech();
-            flayeroptions_hidden();
+        let choose = event.target;
+        let upgchose = document.getElementById('upgchose');
+        let weaponchoose = document.getElementById('weaponchoose');
+        if (choose.value === '1') {
+            upgchose.style.display = 'none';
+            weaponchoose.style.display = 'none';
+            setup();
+            weaponchoosehide();
             document.getElementById('price').innerHTML =
-                'Final cost is: ' + prices.prodTypes[0]*qua + 'Warpstones.';
+                'Total cost: ' + prices.prodTypes[0]*kolvo + ' soulstones.';
         }
-        else if (choser.value === '2') {
-            flayeroptions_hidden();
-            skavenforce.style.display = 'block';
-            flayeroptions.style.display = 'none';
+        else if (choose.value === '2') {
+            weaponchoosehide();
+            upgchose.style.display = 'block';
+            weaponchoose.style.display = 'none';
             document.getElementById('price').innerHTML =
-                'Final cost is: ' + prices.prodTypes[1]*qua + ' Warpstones.';
+                'Total cost: ' + prices.prodTypes[1]*kolvo + ' soulstones.';
         }
-        else if (choser.value === '3') {
-            skavenforce.style.display = 'none';
-          flayeroptions.style.display = 'block';
-            skaventech();
+        else if (choose.value === '3') {
+            upgchose.style.display = 'none';
+            weaponchoose.style.display = 'block';
+            setup();
             document.getElementById('price').innerHTML =
-                'Final cost is: ' + prices.prodTypes[2]*qua + ' Warpstones.';
+                'Total cost: ' + prices.prodTypes[2]*kolvo + ' soulstones.';
         } else {
         }
     });
-    let costtot = document.getElementById('price');
-    costtot.innerHTML = 'Final cost is: ' + price * quantity + ' Warpstones.';
+    let pricegt = document.getElementById('price');
+    pricegt.innerHTML = 'Total cost: ' + price * kolvo + ' soulstones.';
 }
 function gotcost() {
     return {
-        prodTypes: [1, 100, 1000],
+        prodTypes: [315, 515, 915],
         prodOptions: {
-            overpowered: 1000,
-            middlepower: 500,
-            lowpower: 100,
+            fullupg: 100,
+            midupg: 75,
+            lowupg: 40,
         },
         prodProperties: {
-            rapid: 30,
-            single: 25,
+            soniclances: 100,
+            ghostlances: 80,
         },
     };
 }
-let elem = document.getElementById('skaventech');
-elem.style.display = 'none';
-function skaventech() {
-    elem.checked = !elem.checked;
+let element = document.getElementById('setup');
+element.style.display = 'none';
+function setup() {
+    element.checked = !element.checked;
 }
-function flayeroptions_hidden() {
-    document.getElementById('rapid').checked = false;
-    document.getElementById('single').checked = false;
+function weaponchoosehide() {
+    document.getElementById('soniclances').checked = false;
+    document.getElementById('ghostlances').checked = false;
 }
 window.addEventListener('DOMContentLoaded', function () {
-    let raddiv = document.getElementById('skavenforce');
-    raddiv.style.display = 'none';
-    let flayeroptions = document.getElementById('flayeroptions');
-    flayeroptions.style.display = 'none';
-    let s = document.getElementsByName('form');
-    let choser = s[0];
-    choser.addEventListener('change', function () {getnewcost();});
-    let st = document.getElementsByName('st');
-    st.forEach(function (radio) {
+    let upgchose = document.getElementById('upgchose');
+    upgchose.style.display = 'none';
+    let weaponchoose = document.getElementById('weaponchoose');
+    weaponchoose.style.display = 'none';
+    let s = document.getElementsByName('type');
+    let choose = s[0];
+    choose.addEventListener('change', function () {getnewcost();});
+    let stp = document.getElementsByName('stp');
+    stp.forEach(function (radio) {
         radio.addEventListener('change', function () {getnewcost();});
     });
-    let flayeroptions = document.querySelectorAll('#flayeroptions input');
-    flayeroptions.forEach(function (checkbox) {
+    let weapopt = document.querySelectorAll('#weaponchoose input');
+    weapopt.forEach(function (checkbox) {
         checkbox.addEventListener('change', function () {getnewcost();});
     });
     getnewcost();
+});
